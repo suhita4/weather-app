@@ -5,5 +5,5 @@
 <h2>Enter your city</h2>
 <img src="./public/img/Screenshot 1.png" alt="">
 
-<h2>Get forecast for the day in IST</h2>
+<h2>Get the forecast for the day in IST</h2>
 <img src="./public/img/Screenshot 2.png" alt="">
