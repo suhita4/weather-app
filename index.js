@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const product = require('./api/product');
-const port = 8080;
 
 require('dotenv').config();
 const apiKey = `${process.env.API_KEY}`;
+const port = process.env.PORT || 3000;
 
 app.use('/api/product', product);
 
@@ -68,7 +68,7 @@ app.post('/', function(req, res) {
     });
 });
 
-app.listen(process.env.PORT) || port, () => console.log("Weather app listening at http://localhost:${port}");
+app.listen(port), () => console.log("Weather app listening at http://localhost:${port}");
 
 app.listen(3000, function() {
   console.log('Weather app listening on port 3000!');
