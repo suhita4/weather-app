@@ -69,3 +69,7 @@ app.post('/', function(req, res) {
 });
 
 app.listen(process.env.PORT) || port, () => console.log("Weather app listening at http://localhost:${port}");
+
+app.listen(3000, function() {
+  console.log('Weather app listening on port 3000!');
+});
