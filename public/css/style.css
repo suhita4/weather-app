@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.header {
+  background: url(../img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 50px;;
+  color: #1a1a1a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-top: 50px;
+  width: 400px;
+  height: 40px;
+  padding: 0px 20px;
+  padding-left: 16px;
+  font-size: 16px;
+  background: #FFFFFF;
+  border: 2px solid #BCC4CD;
+  border-radius: 7px;
+}
+
+button {
+  margin-top: 25px;
+  padding: 14px 40px;
+  background-color: #1a1a1a;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 40px;
+  }
+  input {
+    width: 350px;
+  }
+  button {
+    font-size: 16px;
+    padding: 14px 35px;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 35px;
+  }
+  input {
+    width: 300px;
+  }
+  button {
+    font-size: 16px;
+    padding: 12px 32px;
+  }
+}
+
+@media (max-width: 330px) {
+  h1 {
+    font-size: 35px;
+  }
+  input {
+    width: 270px;
+  }
+  button {
+    font-size: 16px;
+    padding: 10px 30px;
+  }
+}

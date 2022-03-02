@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/weather.css">
+  <link rel="shortcut icon" href="/public/img/favicon.svg" type="image/x-icon">
+  <title>Weather app</title>
+  <% var date=timezone.split(" "), 
+    sunsets = sunset.split(" "), 
+    sunrises = sunrise.split(" ");
+    feelike = `${weatherData.main.feels_like}`; 
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1); 
+    }
+
+    description = capitalizeFirstLetter(description); 
+
+    var direction = [" North", "North-West" , "West" , "South-West" , "South" , "South-East" , "East" , "North-East" ];
+    var angle=weatherData.wind.deg , index=Math.round(((angle %=360) < 0 ? angle + 360 : angle) / 45) % 8; function
+    round1(x) { return Number.parseFloat(x).toFixed(1); } %>
+</head>
+<body>
+  <div class="hero" id="bg">
+    <h1>Weather Today</h1>
+    <div class="searchbar">
+      <form action="/" method="post" class="search">
+        <input type="text" name="city" placeholder="Search city" required>
+        <button type="submit">Get Weather</button>
+      </form>
+    </div>
+  <% if ( weatherData !==null) { %>
+    <div class="cityStats">
+      <div class="statRow">
+        <div class="cityName">
+          <p class="name"><%=place%></p>
+          <p class="date"><%=date[0]%>, <%=date[2] %>
+            <%=date[1] %></p>
+        </div>
+        <div class="temp">
+          <img src="assets/img/weather.svg" alt="">
+          <p class="degree"><%=Math.round(temp)%><sup style="font-size: 1rem; font-weight: 500">°C</sup></p>
+        </div>
+      </div>
+      <div class="lowerText">
+        <p class="skySunset"> <%=description%> | <% if (date[4] <=sunsets[4] && date[4]> sunrises[4]) {%> Sunset at <%=sunsets[4] %>
+          <% } else {%> Sunrise at <%=sunrises[4] %>
+              <% } %></p>
+        <p class="feelsLike"> Feels like <%=feelike %>°C</p>
+      </div>
+    </div>
+    <div class="stats">
+      <p class="cloudsCover"><b>Clouds Cover: </b><%=clouds %>%</p>
+      <p class="temperature"><b>Temp: </b><%=Math.ceil(weatherData.main.temp_max,2) %>/<%=Math.floor(weatherData.main.temp_min ) %>°C</p>
+      <p class="humidity"><b>Humidity: </b><%=humidity %>%</p>
+      <p class="pressure"><b>Pressure: </b><%=pressure %> hPa</p>
+      <p class="visibility"><b>Visibility: </b><%=visibility /1000%> km</p>
+      <p class="wind"><b>Wind: </b><%=weatherData.wind.speed %>m/s <%=direction[index]%></p>
+    </div>
+  <% } %>
+</div>
+</body>
+</html>
