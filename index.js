@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const https = require('https')
 const product = require("./api/product");
 const cors = require('cors');
 const app = express();
