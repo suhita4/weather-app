@@ -8,8 +8,6 @@ require('dotenv').config();
 const apiKey = `${process.env.API_KEY}`;
 const port = process.env.PORT || 3000;
 
-app.use('/api/product', product);
-
 app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
