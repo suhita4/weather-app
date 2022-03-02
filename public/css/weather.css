@@ -143,10 +143,7 @@ button:hover {
   border-radius: 16px;
   border: 2px solid;
   border-color: #FFFFFF20;
-}
-
-.stats p {
-  line-height: 45px;
+  row-gap: 35px;
 }
 
 @media (max-width: 640px) {
@@ -213,9 +210,6 @@ button:hover {
     padding: 16px;
     font-size: 16px;
   }
-  .stats p {
-    line-height: 35px;
-  }
   input {
     width: 320px;
     margin-right: 8px;
@@ -238,9 +232,6 @@ button:hover {
     width: 90%;
     padding: 16px;
     font-size: 16px;
-  }
-  .stats p {
-    line-height: 20px;
   }
   .search {
     display: flex;
@@ -270,9 +261,6 @@ button:hover {
   .date {
     font-size: 16px;
   }
-  .stats p {
-    line-height: 20px;
-  }
   .degree {
     font-size: 30px;
   }
@@ -300,9 +288,6 @@ button:hover {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     text-align: center;
-  }
-  .stats p{
-    line-height: 35px;
   }
   .date {
     font-size: 16px;
@@ -334,9 +319,6 @@ button:hover {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     text-align: center;
-  }
-  .stats p{
-    line-height: 45px;
   }
   .date {
     font-size: 15px;
