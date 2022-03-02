@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.render('./views/index.ejs', { weatherData: null, error: null });
+    res.render('index.ejs', { weatherData: null, error: null });
 });
 
 app.post('/', function(req, res) {
@@ -24,14 +24,14 @@ app.post('/', function(req, res) {
 
     request(url, function(err, response, body) {
         if (err) {
-            res.render('./views/index.ejs', { weatherData: null, error: 'Error, please try again'});
+            res.render('index.ejs', { weatherData: null, error: 'Error, please try again'});
         } else {
             let weatherData = JSON.parse(body);
             
             console.log(weatherData);
 
             if (weatherData.main == undefined) {
-              res.render('./views/index.ejs', { weatherData: null, error: 'Error, please try again' });
+              res.render('index.ejs', { weatherData: null, error: 'Error, please try again' });
             } else {
               let place = `${weatherData.name}, ${weatherData.sys.country}`,
                 weatherTimezone = `${new Date(weatherData.dt * 1000)}`,
@@ -47,7 +47,7 @@ app.post('/', function(req, res) {
               main = `${weatherData.weather[0].main}`,
               timezone = `${weatherData.sys["timezone"]}`;
   
-            res.render("./views/weatherPage.ejs", {
+            res.render("weatherPage", {
               weatherData,
               place,
               temp: weatherTemp,
