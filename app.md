@@ -15,19 +15,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.render('index', { weatherData: null, error: null });
+res.render('index', { weatherData: null, error: null });
 });
 
 app.post('/', function(req, res) {
-    let city = req.body.city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+let city = req.body.city;
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
     request(url, function(err, response, body) {
         if (err) {
             res.render('index', { weatherData: null, error: 'Error, please try again'});
         } else {
             let weatherData = JSON.parse(body);
-            
+
             console.log(weatherData);
 
             if (weatherData.main == undefined) {
@@ -46,7 +46,7 @@ app.post('/', function(req, res) {
               visibility = `${weatherData.visibility}`,
               main = `${weatherData.weather[0].main}`,
               timezone = `${weatherData.sys["timezone"]}`;
-  
+
             res.render("weatherPage", {
               weatherData,
               place,
@@ -62,14 +62,15 @@ app.post('/', function(req, res) {
               main,
               error: null,
             });
-  
+
             }
         }
     });
+
 });
 
 app.listen(process.env.PORT) || port, () => console.log("Weather app listening at http://localhost:${port}");
 
 app.listen(3000, function() {
-  console.log('Weather app listening on port 3000!');
+console.log('Weather app listening on port 3000!');
 });
