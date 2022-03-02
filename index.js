@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const product = require('./api/product');
-const PORT = process.env.PORT || 8080;
+const port = 8080;
 
 require('dotenv').config();
 const apiKey = `${process.env.API_KEY}`;
@@ -68,6 +68,4 @@ app.post('/', function(req, res) {
     });
 });
 
-app.listen(PORT, function() {
-    console.log('Weather app listening on port 8080!');
-});
+app.listen(process.env.PORT) || port, () => console.log("Weather app listening at http://localhost:${port}");
